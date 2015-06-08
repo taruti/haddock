@@ -54,6 +54,7 @@ data Flag
   | Flag_Heading String
   | Flag_Html
   | Flag_Hoogle
+  | Flag_Stats
   | Flag_Lib String
   | Flag_OutputDir FilePath
   | Flag_Prologue FilePath
@@ -116,6 +117,7 @@ options backwardsCompat =
     Option ['U'] ["use-unicode"] (NoArg Flag_UseUnicode) "use Unicode in HTML output",
     Option []  ["hoogle"]     (NoArg Flag_Hoogle)
       "output for Hoogle; you may want --package-name and --package-version too",
+    Option []  ["stats"]     (NoArg Flag_Stats) "output json statistics suitable for tools",
     Option []  ["source-base"]   (ReqArg Flag_SourceBaseURL "URL")
       "URL for a source code link on the contents\nand index pages",
     Option ['s'] (if backwardsCompat then ["source", "source-module"] else ["source-module"])
